@@ -19,4 +19,4 @@ For Windows: use the [Enthought Python Distribution](https://www.enthought.com/p
 View Notebooks
 --------------
 
-* [Linear regression](http://nbviewer.ipython.org/6863588)
+* [Linear regression](http://nbviewer.ipython.org/urls/raw.github.com/AlexanderFabisch/ml_tutorials/master/01_linear_regression.ipynb)
