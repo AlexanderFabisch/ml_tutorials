@@ -20,3 +20,4 @@ View Notebooks
 --------------
 
 * [Linear regression](http://nbviewer.ipython.org/urls/raw.github.com/AlexanderFabisch/ml_tutorials/master/01_linear_regression.ipynb)
+* [Covariance matrix](http://nbviewer.ipython.org/urls/raw.github.com/AlexanderFabisch/ml_tutorials/master/02_covariance.ipynb)
