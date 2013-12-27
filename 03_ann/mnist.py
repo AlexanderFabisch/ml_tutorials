@@ -31,12 +31,20 @@ def read(digits, dataset="training", path="."):
     else:
         raise ValueError("dataset must be 'testing' or 'training'")
 
-    flbl = open(fname_lbl, 'rb')
+    try:
+        flbl = open(fname_lbl, 'rb')
+    except IOError:
+        raise IOError("Download the MNIST data set from "
+                      "http://yann.lecun.com/exdb/mnist/")
     struct.unpack(">II", flbl.read(8))
     lbl = array.array("b", flbl.read())
     flbl.close()
 
-    fimg = open(fname_img, 'rb')
+    try:
+        fimg = open(fname_img, 'rb')
+    except IOError:
+        raise IOError("Download the MNIST data set from "
+                      "http://yann.lecun.com/exdb/mnist/")
     _, size, rows, cols = struct.unpack(">IIII", fimg.read(16))
     img = array.array("B", fimg.read())
     fimg.close()
