@@ -19,6 +19,7 @@ For Windows: use the [Enthought Python Distribution](https://www.enthought.com/p
 View Notebooks
 --------------
 
-* [Linear regression](http://nbviewer.ipython.org/urls/raw.github.com/AlexanderFabisch/ml_tutorials/master/01_linear_regression.ipynb)
-* [Covariance matrix](http://nbviewer.ipython.org/urls/raw.github.com/AlexanderFabisch/ml_tutorials/master/02_covariance.ipynb)
-* [Meta Learning](http://nbviewer.ipython.org/github/AlexanderFabisch/ml_tutorials/blob/master/03_meta_learning.ipynb)
+* [Linear regression](http://nbviewer.ipython.org/urls/raw.github.com/AlexanderFabisch/ml_tutorials/master/01_linear_regression.ipynb) ([slides](http://alexanderfabisch.github.io/ml_tutorials/01_linear_regression.slides.html))
+* [Meta Learning](http://nbviewer.ipython.org/github/AlexanderFabisch/ml_tutorials/blob/master/02_meta_learning.ipynb) ([slides](http://alexanderfabisch.github.io/ml_tutorials/02_meta_learning.slides.html))
+* [Artificial Neural Networks](http://nbviewer.ipython.org/github/AlexanderFabisch/ml_tutorials/blob/master/03_ann.ipynb) ([slides](http://alexanderfabisch.github.io/ml_tutorials/03_ann.slides.html))
+* [Reinforcement Learning with Function Approximators](http://nbviewer.ipython.org/github/AlexanderFabisch/ml_tutorials/blob/master/04_rl_function_approximation.ipynb?create=1) ([slides](http://alexanderfabisch.github.io/ml_tutorials/04_rl_function_approximation.slides.html))
