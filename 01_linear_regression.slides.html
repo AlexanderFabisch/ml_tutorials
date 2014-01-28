@@ -1843,18 +1843,12 @@ In&nbsp;[1]:
 In&nbsp;[2]:
 </div>
 <div class="input_area box-flex1">
-<div class="highlight"><pre><span class="c"># Enable inline plots</span>
+<div class="highlight"><pre><span class="c"># Enable inline plots, import NumPy and Matplotlib</span>
 <span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
 <span class="c"># Fix seed for random number generator to make the results repeatable</span>
 <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="c"># Pretty matrix outputs</span>
 <span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">edgeitems</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-<span class="c"># Utility functions</span>
-<span class="k">def</span> <span class="nf">build_sinusoidal</span><span class="p">(</span><span class="n">n_degree</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
-    <span class="c"># That does not look readable but it works :)</span>
-    <span class="k">return</span> <span class="p">(((</span><span class="s">&quot;</span><span class="si">%+.2f</span><span class="s"> \sin(</span><span class="si">%d</span><span class="s"> /&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_degree</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; \pi x)&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_degree</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_degree</span><span class="o">+</span><span class="mi">1</span><span class="p">)))))</span>
 </pre></div>
 
 </div>
@@ -2014,7 +2008,7 @@ In&nbsp;[4]:
 
 
 <pre>
-&lt;matplotlib.text.Text at 0x2dea090&gt;
+&lt;matplotlib.text.Text at 0x325efd0&gt;
 </pre>
 
 </div>
@@ -2258,7 +2252,7 @@ In&nbsp;[6]:
 
 
 <pre>
-&lt;matplotlib.text.Text at 0x2f0fed0&gt;
+&lt;matplotlib.text.Text at 0x338de50&gt;
 </pre>
 
 </div>
@@ -2544,10 +2538,7 @@ MZYAEZEWYwkQEWkxlgARkRZjCRARabH/A54ceJbxE25LAAAAAElFTkSuQmCC
 In&nbsp;[7]:
 </div>
 <div class="input_area box-flex1">
-<div class="highlight"><pre><span class="k">print</span> <span class="s">&quot;X =&quot;</span>
-<span class="k">print</span> <span class="n">X_bias</span>
-<span class="k">print</span> <span class="s">&quot;y =&quot;</span>
-<span class="k">print</span> <span class="n">y</span>
+<div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X_bias</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_bias</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_bias</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2557,154 +2548,15 @@ In&nbsp;[7]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="output_area"><div class="prompt output_prompt">
+    Out[7]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
 <pre>
-X =
-[[ 0.    1.  ]
- [ 0.25  1.  ]
- [ 0.5   1.  ]
- [ 0.75  1.  ]
- [ 1.    1.  ]]
-y =
-[ 10.528   4.8     2.957   2.482  -1.265]
-
+array([-10.362,   9.081])
 </pre>
-</div>
-</div>
 
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-<div class="cell border-box-sizing code_cell">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[8]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight"><pre><span class="k">print</span> <span class="s">&quot;X^T X =&quot;</span>
-<span class="k">print</span> <span class="n">X_bias</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_bias</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-X^T X =
-[[ 1.875  2.5  ]
- [ 2.5    5.   ]]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-<div class="cell border-box-sizing code_cell">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[9]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight"><pre><span class="k">print</span> <span class="s">&quot;(X^T X)^{-1} =&quot;</span>
-<span class="k">print</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X_bias</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_bias</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-(X^T X)^{-1} =
-[[ 1.6 -0.8]
- [-0.8  0.6]]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-<div class="cell border-box-sizing code_cell">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[10]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight"><pre><span class="k">print</span> <span class="s">&quot;(X^T X)^{-1} X^T =&quot;</span>
-<span class="k">print</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X_bias</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_bias</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_bias</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-(X^T X)^{-1} X^T =
-[[-0.8 -0.4  0.   0.4  0.8]
- [ 0.6  0.4  0.2 -0.  -0.2]]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-<div class="cell border-box-sizing code_cell">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[11]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight"><pre><span class="k">print</span> <span class="s">&quot;w = (X^T X)^{-1} X^T y =&quot;</span>
-<span class="k">print</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X_bias</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_bias</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_bias</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-w = (X^T X)^{-1} X^T y =
-[-10.362   9.081]
-
-</pre>
 </div>
 </div>
 
@@ -2737,12 +2589,12 @@ w = (X^T X)^{-1} X^T y =
 <div class="cell border-box-sizing code_cell">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[12]:
+In&nbsp;[8]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight"><pre><span class="n">n_pixels</span> <span class="o">=</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">256</span>
 <span class="n">memory_size_xtx</span> <span class="o">=</span> <span class="n">n_pixels</span> <span class="o">*</span> <span class="n">n_pixels</span> <span class="o">*</span> <span class="mi">64</span><span class="o">/</span><span class="mi">8</span>
-<span class="k">print</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s"> GiB&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">memory_size_xtx</span> <span class="o">/</span> <span class="mi">2</span><span class="o">**</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%d</span><span class="s"> GiB&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">memory_size_xtx</span> <span class="o">/</span> <span class="mi">2</span><span class="o">**</span><span class="mi">30</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -2806,7 +2658,7 @@ In&nbsp;[12]:
 <div class="cell border-box-sizing code_cell">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[13]:
+In&nbsp;[9]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">gradient</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
@@ -2832,7 +2684,7 @@ In&nbsp;[13]:
 <div class="cell border-box-sizing code_cell">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[10]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">X_bias</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s">&quot;o&quot;</span><span class="p">)</span>
@@ -2852,12 +2704,12 @@ In&nbsp;[14]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[14]:</div>
+    Out[10]:</div>
 <div class="box-flex1 output_subarea output_pyout">
 
 
 <pre>
-&lt;matplotlib.text.Text at 0x33b4e50&gt;
+&lt;matplotlib.text.Text at 0x383ae10&gt;
 </pre>
 
 </div>
@@ -3322,7 +3174,7 @@ AOAxGAIAAMBjMAQAAIDH/gag+dpUh+A+tQAAAABJRU5ErkJggg==
 <div class="cell border-box-sizing code_cell">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[15]:
+In&nbsp;[11]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">tikhonov</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
@@ -3342,7 +3194,7 @@ In&nbsp;[15]:
 <div class="cell border-box-sizing code_cell">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[16]:
+In&nbsp;[12]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">X_bias</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s">&quot;o&quot;</span><span class="p">)</span>
@@ -3361,12 +3213,12 @@ In&nbsp;[16]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[16]:</div>
+    Out[12]:</div>
 <div class="box-flex1 output_subarea output_pyout">
 
 
 <pre>
-&lt;matplotlib.legend.Legend at 0x33d7b10&gt;
+&lt;matplotlib.legend.Legend at 0x36bcad0&gt;
 </pre>
 
 </div>
@@ -3705,7 +3557,7 @@ AABJRU5ErkJggg==
 <div class="cell border-box-sizing code_cell">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[17]:
+In&nbsp;[13]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">sinusoidalize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n_degree</span><span class="p">):</span>
@@ -3713,6 +3565,12 @@ In&nbsp;[17]:
     <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_degree</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">X_sinusoidal</span><span class="p">[:,</span> <span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">d</span> <span class="o">/</span> <span class="n">n_degree</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">X_sinusoidal</span>
+
+<span class="c"># Utility function</span>
+<span class="k">def</span> <span class="nf">build_sinusoidal</span><span class="p">(</span><span class="n">n_degree</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+    <span class="c"># That does not look readable but it works :)</span>
+    <span class="k">return</span> <span class="p">(((</span><span class="s">&quot;</span><span class="si">%+.2f</span><span class="s"> \sin(</span><span class="si">%d</span><span class="s"> /&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_degree</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; \pi x)&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_degree</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_degree</span><span class="o">+</span><span class="mi">1</span><span class="p">)))))</span>
 
 <span class="n">n_degree</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">X_sinusoidal</span> <span class="o">=</span> <span class="n">sinusoidalize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n_degree</span><span class="o">=</span><span class="n">n_degree</span><span class="p">)</span>
@@ -3730,7 +3588,7 @@ In&nbsp;[17]:
 <div class="cell border-box-sizing code_cell">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[18]:
+In&nbsp;[14]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">X_bias</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s">&quot;o&quot;</span><span class="p">)</span>
@@ -3749,12 +3607,12 @@ In&nbsp;[18]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[18]:</div>
+    Out[14]:</div>
 <div class="box-flex1 output_subarea output_pyout">
 
 
 <pre>
-&lt;matplotlib.text.Text at 0x3250690&gt;
+&lt;matplotlib.text.Text at 0x3866690&gt;
 </pre>
 
 </div>
@@ -4074,7 +3932,7 @@ AAAAAElFTkSuQmCC
 <div class="cell border-box-sizing code_cell">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[19]:
+In&nbsp;[15]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight"><pre><span class="n">w_sin_regularized</span> <span class="o">=</span> <span class="n">tikhonov</span><span class="p">(</span><span class="n">X_sinusoidal</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
@@ -4095,12 +3953,12 @@ In&nbsp;[19]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[19]:</div>
+    Out[15]:</div>
 <div class="box-flex1 output_subarea output_pyout">
 
 
 <pre>
-&lt;matplotlib.text.Text at 0x35e0050&gt;
+&lt;matplotlib.text.Text at 0x3a66090&gt;
 </pre>
 
 </div>
