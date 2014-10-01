@@ -1926,7 +1926,6 @@ http://www.youtube.com/embed/MkLJ-9MubKQ
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>There are many <strong>local minima</strong>.</li>
-<li>They have <strong>many hyperparameters</strong>.</li>
 <li>The optimization problem is <strong>ill-conditioned</strong>.</li>
 <li>There are many <strong>flat regions</strong> (saddle points).</li>
 <li>There is <strong>no guarantee</strong> to reach the global minimum.</li>
@@ -6946,7 +6945,7 @@ REQO9n8ZqE3xIjVrzAAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Neural nets learn <strong>feature hierarchies</strong> to represent functions <em>efficiently</em>.</li>
+<li>SGD finds <strong>sufficiently good</strong> local minima.</li>
 </ul>
 </div>
 </div>
@@ -6959,7 +6958,7 @@ REQO9n8ZqE3xIjVrzAAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>SGD finds <strong>sufficiently good</strong> local minima.</li>
+<li>Neural nets learn <strong>feature hierarchies</strong> to represent functions <em>efficiently</em>.</li>
 </ul>
 </div>
 </div>
@@ -7270,97 +7269,6 @@ RETEUZTgioiIiIijKMEVEREREUdRgisiIiIijvL/Af1pm4oCUdpHAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Google-Application:-Large-Scale-Unsupervised-Feature-Learning">Google Application: Large Scale Unsupervised Feature Learning<a class="anchor-link" href="#Google-Application:-Large-Scale-Unsupervised-Feature-Learning">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><a href="http://research.google.com/archive/unsupervised_icml2012.html">Building High-level Features Using Large Scale Unsupervised Learning</a></li>
-</ul>
-</div>
-</div>
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>Data set</strong>: randomly selected patches from YouTube videos, 10 million images with 200x200 pixels</li>
-</ul>
-</div>
-</div>
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>Trained on</strong> 2,000 computers (16,000 cores) for a week</li>
-</ul>
-</div>
-</div>
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>What has been learned?</strong> - Neurons that are specialized to recognize human bodies, faces and ... cats.</li>
-</ul>
-</div>
-</div>
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Multiple layers of regularized auto-encoders and max-pooling, 1.15 billion (1,150,000,000) weights</li>
-</ul>
-</div>
-</div>
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Neurons in the upper layers are used as <strong>features</strong> for the ImageNet data set and have improved the performance by more than 70 % (22,000 classes, &gt; 1M instances)</li>
-</ul>
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Question-2">Question 2<a class="anchor-link" href="#Question-2">&#182;</a></h2>
 </div>
 </div>
@@ -7419,68 +7327,6 @@ RETEUZTgioiIiIijKMEVEREREUdRgisiIiIijvL/Af1pm4oCUdpHAAAAAElFTkSuQmCC
 <li>allows learning of <strong>hierarchical features</strong> which is much more efficient than just one layer of abstraction</li>
 <li><strong>multiclass classification</strong> can be integrated with linear complexity (softmax activation function, cross-entropy error function)</li>
 <li>it is a <strong>parametric</strong> model, it does not store any training data directly</li>
-</ul>
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Real-Applications">Real Applications<a class="anchor-link" href="#Real-Applications">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>(List from <a href="http://leon.bottou.org/">Léon Bottou</a>)</p>
-<ul>
-<li>Check reading (AT&amp;T Bell Labs, 1995-2005)</li>
-<li>Optical character recognition (Microsoft OCR, 2000)</li>
-<li>Cancer detection from medical images (NEC 2010)</li>
-<li>Object recognition (Google and Baidu's photo taggers, 2013)</li>
-<li>Speech recognition (Microsoft, Google, IBM switched in 2012)</li>
-<li>Natural Language Processing (NEC 2010)</li>
-</ul>
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Implementations">Implementations<a class="anchor-link" href="#Implementations">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>A neural network library is only as efficient as its linear algebra library.</p>
-<ul>
-<li><a href="http://torch.cogbits.com/doc/nn/index.html">Neural Network Package</a> in LuaJIT (based on <a href="http://torch.cogbits.com/doc/index.html">Torch 7</a>)</li>
-<li><a href="http://deeplearning.net/software/pylearn2/">Pylearn 2</a> in Python (based on <a href="http://deeplearning.net/software/theano/">Theano</a>)</li>
-<li><a href="http://code.google.com/p/cuda-convnet/">cuda-convnet</a> in CUDA/Python</li>
-<li><a href="https://github.com/OpenANN/OpenANN">OpenANN</a> in C++/Python (based on <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a>)</li>
 </ul>
 </div>
 </div>
