@@ -1792,6 +1792,108 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Help">Help<a class="anchor-link" href="#Help">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">help</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Help on class object in module __builtin__:
+
+class object
+ |  The most base type
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">glob</span>
+<span class="n">help</span><span class="p">(</span><span class="n">glob</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Help on module glob:
+
+NAME
+    glob - Filename globbing utility.
+
+FILE
+    /usr/lib/python2.7/glob.py
+
+MODULE DOCS
+    http://docs.python.org/library/glob
+
+FUNCTIONS
+    glob(pathname)
+        Return a list of paths matching a pathname pattern.
+        
+        The pattern may contain simple shell-style wildcards a la fnmatch.
+    
+    iglob(pathname)
+        Return an iterator which yields the paths matching a pathname pattern.
+        
+        The pattern may contain simple shell-style wildcards a la fnmatch.
+
+DATA
+    __all__ = [&apos;glob&apos;, &apos;iglob&apos;]
+
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Variables-and-Types">Variables and Types<a class="anchor-link" href="#Variables-and-Types">&#182;</a></h2>
 </div>
 </div>
@@ -1809,7 +1911,7 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1841,7 +1943,7 @@ In&nbsp;[2]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[5]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1873,12 +1975,13 @@ In&nbsp;[3]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[6]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;list&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;c[0]&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 
 </div>
@@ -1893,6 +1996,7 @@ In&nbsp;[4]:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 (&apos;c&apos;, [1, &apos;list&apos;, 3], &lt;type &apos;list&apos;&gt;)
+(&apos;c[0]&apos;, 1, &lt;type &apos;int&apos;&gt;)
 
 </pre>
 </div>
@@ -1914,7 +2018,7 @@ In&nbsp;[4]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[5]:
+In&nbsp;[7]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1947,7 +2051,7 @@ In&nbsp;[5]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[8]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1978,7 +2082,7 @@ In&nbsp;[6]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[7]:
+In&nbsp;[9]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2009,7 +2113,7 @@ In&nbsp;[7]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[8]:
+In&nbsp;[10]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2041,7 +2145,7 @@ value
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[9]:
+In&nbsp;[11]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2057,7 +2161,7 @@ In&nbsp;[9]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[9]:</div>
+    Out[11]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2075,7 +2179,7 @@ True
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[10]:
+In&nbsp;[12]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2091,7 +2195,7 @@ In&nbsp;[10]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[10]:</div>
+    Out[12]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2109,7 +2213,7 @@ False
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[13]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2141,7 +2245,7 @@ In&nbsp;[11]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[12]:
+In&nbsp;[14]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2157,7 +2261,7 @@ In&nbsp;[12]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[12]:</div>
+    Out[14]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2175,7 +2279,7 @@ True
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[13]:
+In&nbsp;[15]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2226,7 +2330,7 @@ In&nbsp;[13]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[16]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2242,7 +2346,7 @@ In&nbsp;[14]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[14]:</div>
+    Out[16]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2260,7 +2364,7 @@ In&nbsp;[14]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[15]:
+In&nbsp;[17]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2276,7 +2380,7 @@ In&nbsp;[15]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[15]:</div>
+    Out[17]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2294,7 +2398,7 @@ In&nbsp;[15]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[16]:
+In&nbsp;[18]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2310,7 +2414,7 @@ In&nbsp;[16]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[16]:</div>
+    Out[18]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2328,7 +2432,7 @@ In&nbsp;[16]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[17]:
+In&nbsp;[19]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2344,7 +2448,7 @@ In&nbsp;[17]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[17]:</div>
+    Out[19]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2372,7 +2476,7 @@ In&nbsp;[17]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[18]:
+In&nbsp;[20]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2425,7 +2529,7 @@ Hello
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[19]:
+In&nbsp;[21]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2470,7 +2574,7 @@ In&nbsp;[19]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[20]:
+In&nbsp;[22]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2504,7 +2608,7 @@ In&nbsp;[20]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[21]:
+In&nbsp;[23]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2548,7 +2652,7 @@ In&nbsp;[21]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[22]:
+In&nbsp;[24]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2569,7 +2673,7 @@ In&nbsp;[22]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[23]:
+In&nbsp;[25]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2594,18 +2698,30 @@ In&nbsp;[23]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[24]:
+In&nbsp;[26]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is a docstring for the constructor of A.</span>
+
+<span class="sd">    Describe the parameter a here.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
 
     <span class="k">def</span> <span class="nf">print_me</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This is a docstring for the function print_me.&quot;&quot;&quot;</span>
         <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">some_other_fun</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>  <span class="c"># Do nothing</span>
+
+
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Describe B here.&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)</span>  <span class="c"># Call constructor of A</span>
 
@@ -2644,7 +2760,7 @@ B
 <li>To reuse code from the superclass <code>A</code> in its subclass <code>B</code></li>
 <li>To be able to use some function <code>my_fun</code> for all subclasses of <code>A</code>; <strong>This is not required in Python because the type system is dynamic!</strong></li>
 </ul>
-<p>Duck typing:</p>
+<p><strong>Duck typing</strong></p>
 <p>&quot;When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.&quot;</p>
 </div>
 </div>
@@ -2652,7 +2768,7 @@ B
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[25]:
+In&nbsp;[27]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2688,7 +2804,7 @@ In&nbsp;[25]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[26]:
+In&nbsp;[28]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2732,7 +2848,7 @@ can&apos;t multiply sequence by non-int of type &apos;str&apos;
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[27]:
+In&nbsp;[29]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2791,7 +2907,7 @@ In&nbsp;[27]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[28]:
+In&nbsp;[30]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2807,7 +2923,7 @@ In&nbsp;[28]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[28]:</div>
+    Out[30]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2825,7 +2941,7 @@ In&nbsp;[28]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[29]:
+In&nbsp;[31]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2841,7 +2957,7 @@ In&nbsp;[29]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[29]:</div>
+    Out[31]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2859,7 +2975,7 @@ In&nbsp;[29]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[30]:
+In&nbsp;[32]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2875,7 +2991,7 @@ In&nbsp;[30]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[30]:</div>
+    Out[32]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2912,7 +3028,7 @@ In&nbsp;[30]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[31]:
+In&nbsp;[33]:
 </div>
 <div class="inner_cell">
     <div class="input_area">

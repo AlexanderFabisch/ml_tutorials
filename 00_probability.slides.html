@@ -1744,6 +1744,8 @@ div.output_prompt {
 <ul>
 <li>Gaussian Mixture Models (Clustering, Regression)</li>
 <li>Naive Bayes (Classification)</li>
+<li>Linear Regression (Regression)</li>
+<li>Logistic Regression (Classification)</li>
 </ul>
 </div>
 </div>
@@ -1763,6 +1765,7 @@ div.output_prompt {
 <li>\(0 \leq P(A) \leq 1\)</li>
 <li>\(P(A) = 1\) means the random experiment will <strong>always</strong> have the outcome \(A\)</li>
 <li>\(P(A) = 0\) means the random experiment will <strong>never</strong> have the outcome \(A\)</li>
+<li>\(P(A) = p \in (0, 1)\) means the random experiment will have the outcome \(A\) with probability \(p\)</li>
 </ul>
 </div>
 </div>
@@ -1796,7 +1799,7 @@ div.output_prompt {
 <p>Probability of observing \(A\) given \(B\) has been observed</p>
 <p>\[P(A|B) = \frac{P(A \cap B)}{P(B)}\]</p>
 <h2 id="independence">Independence</h2>
-<p>Outcomes \(A\) and \(B\) are <strong>independend</strong> (\(A \perp B\)) iff (if and only if)</p>
+<p>Outcomes \(A\) and \(B\) (with probability greater than 0) are <strong>independend</strong> (\(A \perp B\)) iff (if and only if)</p>
 <p>\[P(A|B) = P(A) \text{ which is the same as } P(A \cap B) = P(A) P(B)\]</p>
 </div>
 </div>
@@ -1830,7 +1833,7 @@ div.output_prompt {
 </ul>
 <p>We call</p>
 <ul>
-<li>\(P(H)\) is a <strong>prior</strong>; it is usually determined be the user</li>
+<li>\(P(H)\) is a <strong>prior</strong>; how likely is the hypothesis \(H\) without any observations?</li>
 <li>\(P(\mathcal{D})\) the <strong>evidence</strong>; usually all observations are equiprobable</li>
 <li>\(P(\mathcal{D} | H)\)
 <ul>
@@ -1849,7 +1852,7 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="bayesian-inference">Bayesian Inference</h2>
-<p>\[P(H|\mathcal{D}) = \frac{P(\mathcal{D}|H) P(H)}{P(\mathcal{D})}\]</p>
+<p>\[P(H|\mathcal{D}) = \frac{P(\mathcal{D}|H) P(H)}{P(\mathcal{D})} = \frac{\mathcal{L}(H | \mathcal{D}) P(H)}{P(\mathcal{D})}\]</p>
 <p>\[\text{posterior} = \frac{\text{likelihood} \times \text{prior}}{\text{evidence}}\]</p>
 </div>
 </div>
@@ -1865,19 +1868,249 @@ div.output_prompt {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="what-does-learning-mean">What Does Learning Mean?</h2>
 <p>Learning means optimizing the hypothesis with respect to a given objective, e.g.</p>
-<h2 id="maximum-likelihood-estimate-mle">Maximum Likelihood Estimate (MLE)</h2>
-<p>\(H_{\text{MLE}} = \arg \max_H \mathcal{L}(H | \mathcal{D})\)</p>
 <h2 id="maximum-a-postiori-estimate-map">Maximum a Postiori Estimate (MAP)</h2>
 <p>\(H_{\text{MAP}} = \arg \max_H \mathcal{L}(H | \mathcal{D}) P(H)\)</p>
+<h2 id="maximum-likelihood-estimate-mle">Maximum Likelihood Estimate (MLE)</h2>
+<p>\(H_{\text{MLE}} = \arg \max_H \mathcal{L}(H | \mathcal{D})\)</p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>the evidence \(P(\mathcal{D})\) does not change the maximum</li>
 <li>often the log-likelihood \(\log \mathcal{L}\) will be optimized</li>
-<li>MAP is usually a <strong>regularized</strong> version of the MLE, i.e. it generalizes better over unseen data</li>
+<li>MAP is often a <strong>regularized</strong> version of the MLE, i.e. it generalizes better over unseen data</li>
+<li>MLE is a special case of MAP with uniform prior</li>
 </ul>
 </div>
 </div>
 </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Moments-of-random-variables">Moments of random variables<a class="anchor-link" href="#Moments-of-random-variables">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Mode</strong> - the value that appears most often in a dataset</p>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Mean</strong> - the average value of a random variable X</p>
+<p>\[\mu_x = E(X) = \sum_x p(x) \cdot x\]</p>
+<p>Lemma: \(E(a + b X) = a + b E(X)\)</p>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Variance</strong> - squared average deviation from the mean of a random variable</p>
+<p>\[Var(X) = E([X - E(X)]^2) = E(X^2) - \mu_x^2\]</p>
+<p>Lemma: \(Var(a + b X) = b^2 Var(X)\)</p>
+<p><strong>Standard deviation</strong> - square root of the variance</p>
+</div>
+</div>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Estimated-Moments-from-Samples">Estimated Moments from Samples<a class="anchor-link" href="#Estimated-Moments-from-Samples">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[4]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[7]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">estimated_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000.0</span>
+<span class="n">estimated_mean</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[7]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+0.86731284696043887
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[10]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[10]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+0.86731284696043887
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[9]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">estimated_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">estimated_mean</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000.0</span>
+<span class="n">estimated_var</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[9]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+0.30113051335498248
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[11]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[11]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+0.30113051335498248
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
     </section><section>
     <section>
     
