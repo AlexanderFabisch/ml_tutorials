@@ -18,5 +18,5 @@ The following packages are required to use these notebooks:
 * NumPy - linear algebra library
 * Matplotlib - plotting library
 
-For Windows: use the [Enthought Python Distribution](https://www.enthought.com/products/epd/).
+For Windows: use [Anaconda](https://store.continuum.io/cshop/anaconda/) or the [Enthought Python Distribution](https://www.enthought.com/products/epd/).
 
